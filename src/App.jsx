@@ -4,12 +4,12 @@ import InvoicePreview from './components/InvoicePreview'
 import './App.css'
 
 const defaultData = {
-  invoiceId: '##KAD-2026-03-0001',
-  invoiceDate: '2026-03-31',
-  dueDate: '2026-03-31',
-  billedName: 'Kadince, mInc',
+  invoiceId: '##KAD-2026-XX-XXXX',
+  invoiceDate: '',
+  dueDate: '',
+  billedName: 'Kadince, Inc',
   billedAddress: '2637 North Washington Boulevard #154,\nNorth Ogden, UT 84414',
-  payName: 'G. F. DE ARRUDA JUNIOR CONSULTORIA EM TECNOLOGIA DA INFORMACAO LTDA',
+  payName: 'GEORGEM ARRUDA\n83778292315\nG. F. DE ARRUDA JUNIOR CONSULTORIA EM TECNOLOGIA DA INFORMACAO LTDA',
   accountNumber: '375404400216',
   routingNumber: '021214891',
   currency: 'USD',

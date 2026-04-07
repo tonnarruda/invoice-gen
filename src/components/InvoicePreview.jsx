@@ -56,9 +56,11 @@ export default function InvoicePreview({ data, onBack }) {
           <div className="party">
             <h3>Pay to:</h3>
             <p>
-              {data.payName}
-              {data.accountNumber && <><br />Acount Number: {data.accountNumber}</>}
-              {data.routingNumber && <><br />Routing Number: {data.routingNumber}</>}
+              {data.payName.split('\n').map((line, i) => (
+                <span key={i}>{line}<br /></span>
+              ))}
+              {data.accountNumber && <>Acount Number: {data.accountNumber}<br /></>}
+              {data.routingNumber && <>Routing Number: {data.routingNumber}</>}
             </p>
           </div>
         </div>
