@@ -115,22 +115,16 @@ export default function InvoiceForm({ initialData, onGenerate }) {
             />
             <input
               className="col-qty"
-              type="number"
-              step="0.01"
               placeholder="1"
               value={item.quantity}
               onChange={(e) => updateItem(i, 'quantity', e.target.value)}
             />
-            <div className="rate-input col-rate">
-              <span className="rate-prefix">$</span>
-              <input
-                type="number"
-                step="0.01"
-                placeholder="0"
-                value={item.rate}
-                onChange={(e) => updateItem(i, 'rate', e.target.value)}
-              />
-            </div>
+            <input
+              className="col-rate"
+              placeholder="0"
+              value={item.rate}
+              onChange={(e) => updateItem(i, 'rate', e.target.value)}
+            />
             <span className="col-amount amount-display">
               {form.currency === 'USD' ? 'US$' : form.currency} {parseFloat(item.amount || 0).toFixed(2).replace('.', ',')}
             </span>
