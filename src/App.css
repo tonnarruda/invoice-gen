@@ -111,6 +111,33 @@ textarea {
   text-align: center;
 }
 
+.rate-input {
+  display: flex;
+  align-items: center;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.rate-input .rate-prefix {
+  padding: 8px 6px 8px 10px;
+  color: #999;
+  font-size: 14px;
+  background: #f9fafb;
+  border-right: 1px solid #d1d5db;
+}
+
+.rate-input input {
+  border: none;
+  border-radius: 0;
+  padding: 8px 10px;
+  font-size: 14px;
+  width: 100%;
+}
+
+.rate-input input:focus {
+  outline: none;
+}
 
 .amount-display {
   font-size: 14px;
