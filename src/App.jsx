@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import InvoiceForm from './components/InvoiceForm'
 import InvoicePreview from './components/InvoicePreview'
+import TimerView from './components/TimerView'
 import './App.css'
 
 const defaultData = {
@@ -17,28 +18,51 @@ const defaultData = {
 }
 
 function App() {
-  const [view, setView] = useState('form')
+  const [page, setPage] = useState('timer')
+  const [invoiceView, setInvoiceView] = useState('form')
   const [invoiceData, setInvoiceData] = useState(defaultData)
 
   const handleGenerate = (data) => {
     setInvoiceData(data)
-    setView('preview')
-  }
-
-  if (view === 'preview') {
-    return (
-      <InvoicePreview
-        data={invoiceData}
-        onBack={() => setView('form')}
-      />
-    )
+    setInvoiceView('preview')
   }
 
   return (
-    <InvoiceForm
-      initialData={invoiceData}
-      onGenerate={handleGenerate}
-    />
+    <div className="app-shell">
+      <aside className="app-sidebar" aria-label="Navegação principal">
+        <div className="app-sidebar-brand">invoice-gen</div>
+        <nav className="app-sidebar-nav">
+          <button
+            type="button"
+            className={`app-sidebar-link ${page === 'timer' ? 'active' : ''}`}
+            onClick={() => setPage('timer')}
+          >
+            Timer
+          </button>
+          <button
+            type="button"
+            className={`app-sidebar-link ${page === 'invoice' ? 'active' : ''}`}
+            onClick={() => setPage('invoice')}
+          >
+            Invoice
+          </button>
+        </nav>
+      </aside>
+      <main className="app-main">
+        {page === 'timer' && <TimerView />}
+        {page === 'invoice' && invoiceView === 'preview' && (
+          <InvoicePreview
+            data={invoiceData}
+            onBack={() => {
+              setInvoiceView('form')
+            }}
+          />
+        )}
+        {page === 'invoice' && invoiceView === 'form' && (
+          <InvoiceForm initialData={invoiceData} onGenerate={handleGenerate} />
+        )}
+      </main>
+    </div>
   )
 }
 
